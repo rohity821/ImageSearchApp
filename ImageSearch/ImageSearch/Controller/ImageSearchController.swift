@@ -48,8 +48,6 @@ class ImageSearchController: UIViewController, UICollectionViewDelegate, UIColle
     private func setupSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
-        //        searchController.searchResultsUpdater = self
-        
         navigationItem.searchController = searchController
     }
     
@@ -144,7 +142,9 @@ class ImageSearchController: UIViewController, UICollectionViewDelegate, UIColle
     //Mark : Image search presenter delegate
     func refreshUIForSearchResults(searchResults: ImageResponseModel) {
         hideHUD()
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
         if searchResults.hits.count == 0 && images.count == 0 {
             DispatchQueue.main.async { [weak self] in
                 self?.noDataView.isHidden = false
@@ -167,15 +167,18 @@ class ImageSearchController: UIViewController, UICollectionViewDelegate, UIColle
     
     func refreshUIforSearchResultsFailure(errorMessage: String) {
         hideHUD()
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        if images.count == 0 {
-            noDataView.isHidden = false
-            collectionView.isHidden = true
-        } else {
-            noDataView.isHidden = true
-            collectionView.isHidden = false
-            //show toast or alert
+        showToast(title: errorMessage)
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            if self.images.count == 0 {
+                self.noDataView.isHidden = false
+                self.collectionView.isHidden = true
+            } else {
+                self.noDataView.isHidden = true
+                self.collectionView.isHidden = false
+                //show toast or alert
+            }
+            self.toggleOptionBtnState()
         }
-        toggleOptionBtnState()
     }
 }

@@ -28,10 +28,10 @@ class ImageSearchInteractor  {
             return
         }
         searchQueryTask.getSearchResults(searchTerm: finalQuery, page: page) { [weak self] (imageResponse, errorMessage) in
-            if !errorMessage.isEmpty {
-                self?.delegate?.searchQueryErrorRecieved(errorMsg: errorMessage)
-            } else if let imgResponse = imageResponse {
+            if let imgResponse = imageResponse {
                 self?.delegate?.searchQueryDidComplete(imageResponse: imgResponse)
+            } else if !errorMessage.isEmpty {
+                self?.delegate?.searchQueryErrorRecieved(errorMsg: errorMessage)
             }
         }
     }

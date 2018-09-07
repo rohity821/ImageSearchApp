@@ -56,3 +56,11 @@ extension ImageSearchController {
         }
     }
 }
+
+extension ImageSearchController {
+    func showToast(title:String) {
+        DispatchQueue.main.async {
+            self.view.makeToast(title)
+        }
+    }
+}

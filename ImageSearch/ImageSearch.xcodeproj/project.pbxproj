@@ -21,6 +21,10 @@
 		85FEAC532142E90600EDD90F /* ImageSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC522142E90600EDD90F /* ImageSearchController.swift */; };
 		85FEAC552142E91800EDD90F /* ImageSearchController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC542142E91800EDD90F /* ImageSearchController+SearchBar.swift */; };
 		85FEAC582142E97E00EDD90F /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC572142E97E00EDD90F /* ImageCollectionCell.swift */; };
+		85FEAC5D2142EB5A00EDD90F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC5B2142EB5900EDD90F /* Reachability.swift */; };
+		85FEAC5E2142EB5A00EDD90F /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC5C2142EB5900EDD90F /* ReachabilityManager.swift */; };
+		85FEAC602142EB6D00EDD90F /* WriterTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC5F2142EB6D00EDD90F /* WriterTask.swift */; };
+		85FEAC632142F59400EDD90F /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC622142F59300EDD90F /* Toast.swift */; };
 		96AA3044B4D5606E548B857B /* Pods_ImageSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6E1BE1FA2274A377FE2688 /* Pods_ImageSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +45,10 @@
 		85FEAC522142E90600EDD90F /* ImageSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchController.swift; sourceTree = "<group>"; };
 		85FEAC542142E91800EDD90F /* ImageSearchController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageSearchController+SearchBar.swift"; sourceTree = "<group>"; };
 		85FEAC572142E97E00EDD90F /* ImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
+		85FEAC5B2142EB5900EDD90F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		85FEAC5C2142EB5900EDD90F /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		85FEAC5F2142EB6D00EDD90F /* WriterTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriterTask.swift; sourceTree = "<group>"; };
+		85FEAC622142F59300EDD90F /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		89370057E1D56DDFF4C78A1D /* Pods-ImageSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImageSearch/Pods-ImageSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		9BFC8E3D3C27D6F666DCA62B /* Pods-ImageSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImageSearch/Pods-ImageSearch.release.xcconfig"; sourceTree = "<group>"; };
 		AA6E1BE1FA2274A377FE2688 /* Pods_ImageSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +77,7 @@
 		85FEAC162142DB5F00EDD90F = {
 			isa = PBXGroup;
 			children = (
+				85FEAC612142F59300EDD90F /* Toast */,
 				85FEAC212142DB5F00EDD90F /* ImageSearch */,
 				85FEAC202142DB5F00EDD90F /* Products */,
 				F79B89C9B6FCA84FEB0B1F7E /* Pods */,
@@ -87,6 +96,8 @@
 		85FEAC212142DB5F00EDD90F /* ImageSearch */ = {
 			isa = PBXGroup;
 			children = (
+				85FEAC5A2142EB3400EDD90F /* Writer Task */,
+				85FEAC592142EB2B00EDD90F /* Reachability */,
 				85FEAC432142DE1300EDD90F /* Constants */,
 				85FEAC382142DD7A00EDD90F /* Models */,
 				85FEAC372142DD6900EDD90F /* Controller */,
@@ -160,6 +171,32 @@
 				85FEAC572142E97E00EDD90F /* ImageCollectionCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		85FEAC592142EB2B00EDD90F /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				85FEAC5B2142EB5900EDD90F /* Reachability.swift */,
+				85FEAC5C2142EB5900EDD90F /* ReachabilityManager.swift */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		85FEAC5A2142EB3400EDD90F /* Writer Task */ = {
+			isa = PBXGroup;
+			children = (
+				85FEAC5F2142EB6D00EDD90F /* WriterTask.swift */,
+			);
+			path = "Writer Task";
+			sourceTree = "<group>";
+		};
+		85FEAC612142F59300EDD90F /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				85FEAC622142F59300EDD90F /* Toast.swift */,
+			);
+			name = Toast;
+			path = ImageSearch/Toast;
 			sourceTree = "<group>";
 		};
 		F79B89C9B6FCA84FEB0B1F7E /* Pods */ = {
@@ -285,10 +322,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85FEAC5E2142EB5A00EDD90F /* ReachabilityManager.swift in Sources */,
+				85FEAC602142EB6D00EDD90F /* WriterTask.swift in Sources */,
 				85FEAC552142E91800EDD90F /* ImageSearchController+SearchBar.swift in Sources */,
 				85FEAC582142E97E00EDD90F /* ImageCollectionCell.swift in Sources */,
+				85FEAC5D2142EB5A00EDD90F /* Reachability.swift in Sources */,
 				85FEAC532142E90600EDD90F /* ImageSearchController.swift in Sources */,
 				85FEAC252142DB5F00EDD90F /* ViewController.swift in Sources */,
+				85FEAC632142F59400EDD90F /* Toast.swift in Sources */,
 				85FEAC232142DB5F00EDD90F /* AppDelegate.swift in Sources */,
 				85FEAC422142DE0900EDD90F /* ImageDataModel.swift in Sources */,
 				85FEAC3C2142DDC100EDD90F /* ImageSearchPresenter.swift in Sources */,
