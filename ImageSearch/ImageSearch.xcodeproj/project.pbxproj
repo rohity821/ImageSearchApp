@@ -12,6 +12,12 @@
 		85FEAC282142DB5F00EDD90F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85FEAC262142DB5F00EDD90F /* Main.storyboard */; };
 		85FEAC2A2142DB6300EDD90F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85FEAC292142DB6300EDD90F /* Assets.xcassets */; };
 		85FEAC2D2142DB6300EDD90F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85FEAC2B2142DB6300EDD90F /* LaunchScreen.storyboard */; };
+		85FEAC3A2142DDA100EDD90F /* ImageSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC392142DDA100EDD90F /* ImageSearchInteractor.swift */; };
+		85FEAC3C2142DDC100EDD90F /* ImageSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC3B2142DDC000EDD90F /* ImageSearchPresenter.swift */; };
+		85FEAC3E2142DDE300EDD90F /* ImageSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC3D2142DDE300EDD90F /* ImageSearchAPI.swift */; };
+		85FEAC402142DDF600EDD90F /* ImageSearchQueryTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC3F2142DDF600EDD90F /* ImageSearchQueryTask.swift */; };
+		85FEAC422142DE0900EDD90F /* ImageDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC412142DE0900EDD90F /* ImageDataModel.swift */; };
+		85FEAC452142DE1E00EDD90F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC442142DE1E00EDD90F /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		85FEAC292142DB6300EDD90F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85FEAC2C2142DB6300EDD90F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85FEAC2E2142DB6300EDD90F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85FEAC392142DDA100EDD90F /* ImageSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchInteractor.swift; sourceTree = "<group>"; };
+		85FEAC3B2142DDC000EDD90F /* ImageSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchPresenter.swift; sourceTree = "<group>"; };
+		85FEAC3D2142DDE300EDD90F /* ImageSearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchAPI.swift; sourceTree = "<group>"; };
+		85FEAC3F2142DDF600EDD90F /* ImageSearchQueryTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchQueryTask.swift; sourceTree = "<group>"; };
+		85FEAC412142DE0900EDD90F /* ImageDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataModel.swift; sourceTree = "<group>"; };
+		85FEAC442142DE1E00EDD90F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,12 @@
 		85FEAC212142DB5F00EDD90F /* ImageSearch */ = {
 			isa = PBXGroup;
 			children = (
+				85FEAC432142DE1300EDD90F /* Constants */,
+				85FEAC382142DD7A00EDD90F /* Models */,
+				85FEAC372142DD6900EDD90F /* Controller */,
+				85FEAC362142DD6200EDD90F /* Networking */,
+				85FEAC352142DD5600EDD90F /* Presenter */,
+				85FEAC342142DD4E00EDD90F /* Interactor */,
 				85FEAC222142DB5F00EDD90F /* AppDelegate.swift */,
 				85FEAC242142DB5F00EDD90F /* ViewController.swift */,
 				85FEAC262142DB5F00EDD90F /* Main.storyboard */,
@@ -62,6 +80,54 @@
 				85FEAC2E2142DB6300EDD90F /* Info.plist */,
 			);
 			path = ImageSearch;
+			sourceTree = "<group>";
+		};
+		85FEAC342142DD4E00EDD90F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				85FEAC392142DDA100EDD90F /* ImageSearchInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		85FEAC352142DD5600EDD90F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				85FEAC3B2142DDC000EDD90F /* ImageSearchPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		85FEAC362142DD6200EDD90F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				85FEAC3D2142DDE300EDD90F /* ImageSearchAPI.swift */,
+				85FEAC3F2142DDF600EDD90F /* ImageSearchQueryTask.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		85FEAC372142DD6900EDD90F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		85FEAC382142DD7A00EDD90F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				85FEAC412142DE0900EDD90F /* ImageDataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		85FEAC432142DE1300EDD90F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				85FEAC442142DE1E00EDD90F /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +203,12 @@
 			files = (
 				85FEAC252142DB5F00EDD90F /* ViewController.swift in Sources */,
 				85FEAC232142DB5F00EDD90F /* AppDelegate.swift in Sources */,
+				85FEAC422142DE0900EDD90F /* ImageDataModel.swift in Sources */,
+				85FEAC3C2142DDC100EDD90F /* ImageSearchPresenter.swift in Sources */,
+				85FEAC3A2142DDA100EDD90F /* ImageSearchInteractor.swift in Sources */,
+				85FEAC3E2142DDE300EDD90F /* ImageSearchAPI.swift in Sources */,
+				85FEAC402142DDF600EDD90F /* ImageSearchQueryTask.swift in Sources */,
+				85FEAC452142DE1E00EDD90F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
