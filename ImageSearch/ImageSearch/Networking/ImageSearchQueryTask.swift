@@ -12,7 +12,6 @@ class ImageSearchQueryTask {
     typealias JSONDictionary = [String: Any]
     typealias result = (ImageResponseModel?, String) -> ()
     
-    let baseUrl = "https://pixabay.com/api/?key=10028201-f7ffd1c4b91bb9627b124a7b9&q=yellow+flowers&image_type=photo&pretty=true&per_page=20"
     
     let defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
@@ -20,7 +19,7 @@ class ImageSearchQueryTask {
     var imageResults: ImageResponseModel?
     var errorMessage = ""
     
-    let perPage = 20
+    let perPage = 40
     
     func getSearchResults(searchTerm: String,page:Int, completion: @escaping result) {
         dataTask?.cancel()
@@ -30,15 +29,16 @@ class ImageSearchQueryTask {
             if let data = readData(fromFile: searchTerm) {
                 updateSearchResults(data)
             } else {
-                errorMessage = "We had trouble reaching our servers. Pls check your internet connection."
+                errorMessage = noInternetError
             }
             completion(imageResults, errorMessage)
             resetLocalVariables()
         }
         else {
             if var urlComponents = URLComponents(string: ImageSearchAPI.imageSearchUrl) {
-                urlComponents.query = "key=10028201-f7ffd1c4b91bb9627b124a7b9&image_type=photo&pretty=true&q=\(searchTerm)&per_page=\(perPage)&page=\(page)"
+                urlComponents.query = "key=\(apiKey)&image_type=photo&pretty=true&q=\(searchTerm)&per_page=\(perPage)&page=\(page)"
                 guard let url = urlComponents.url else { return }
+                
                 dataTask = defaultSession.dataTask(with: url) { data, response, error in
                     defer { self.dataTask = nil }
                     if let error = error {
@@ -48,6 +48,7 @@ class ImageSearchQueryTask {
                         response.statusCode == 200 {
                         self.updateSearchResults(data)
                         self.saveData(data: data, toFile: searchTerm)
+//                        self.save(data: data, page: page, fileName: searchTerm)
                         completion(self.imageResults, self.errorMessage)
                         self.resetLocalVariables()
                     }
@@ -57,6 +58,7 @@ class ImageSearchQueryTask {
         }
     }
     
+    //Mark: Private functions
     private func updateSearchResults(_ data: Data) {
         do {
             let decoder = JSONDecoder()
@@ -69,9 +71,22 @@ class ImageSearchQueryTask {
         }
     }
     
+//    private func save(data:Data, page:Int, fileName:String) {
+//        switch page {
+//        case 1:
+//            saveData(data: data, toFile: fileName)
+//        default:
+//            appendData(data: data, toFile: fileName)
+//        }
+//    }
+//
     private func saveData(data : Data, toFile fileName:String) {
         WriterTask.shared().writeDataToFile(data: data, fileName: fileName)
     }
+    
+//    private func appendData(data:Data, toFile fileName:String) {
+//        WriterTask.shared().appendDataToFile(data: data, fileName: fileName)
+//    }
     
     private func readData(fromFile fileName:String) -> Data?{
         let data = WriterTask.shared().readDataFromFile(fileName: fileName)

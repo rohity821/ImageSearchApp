@@ -81,7 +81,7 @@ class ImageSearchController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == images.count-1 {
+        if indexPath.row == images.count-3 {
             searchPresenter.getNextPage()
         }
     }
