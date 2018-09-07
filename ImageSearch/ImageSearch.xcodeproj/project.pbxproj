@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		85FEAC232142DB5F00EDD90F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC222142DB5F00EDD90F /* AppDelegate.swift */; };
-		85FEAC252142DB5F00EDD90F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC242142DB5F00EDD90F /* ViewController.swift */; };
 		85FEAC282142DB5F00EDD90F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85FEAC262142DB5F00EDD90F /* Main.storyboard */; };
 		85FEAC2A2142DB6300EDD90F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85FEAC292142DB6300EDD90F /* Assets.xcassets */; };
 		85FEAC2D2142DB6300EDD90F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85FEAC2B2142DB6300EDD90F /* LaunchScreen.storyboard */; };
@@ -31,7 +30,6 @@
 /* Begin PBXFileReference section */
 		85FEAC1F2142DB5F00EDD90F /* ImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85FEAC222142DB5F00EDD90F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		85FEAC242142DB5F00EDD90F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		85FEAC272142DB5F00EDD90F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85FEAC292142DB6300EDD90F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85FEAC2C2142DB6300EDD90F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 				85FEAC352142DD5600EDD90F /* Presenter */,
 				85FEAC342142DD4E00EDD90F /* Interactor */,
 				85FEAC222142DB5F00EDD90F /* AppDelegate.swift */,
-				85FEAC242142DB5F00EDD90F /* ViewController.swift */,
 				85FEAC262142DB5F00EDD90F /* Main.storyboard */,
 				85FEAC292142DB6300EDD90F /* Assets.xcassets */,
 				85FEAC2B2142DB6300EDD90F /* LaunchScreen.storyboard */,
@@ -328,7 +325,6 @@
 				85FEAC582142E97E00EDD90F /* ImageCollectionCell.swift in Sources */,
 				85FEAC5D2142EB5A00EDD90F /* Reachability.swift in Sources */,
 				85FEAC532142E90600EDD90F /* ImageSearchController.swift in Sources */,
-				85FEAC252142DB5F00EDD90F /* ViewController.swift in Sources */,
 				85FEAC632142F59400EDD90F /* Toast.swift in Sources */,
 				85FEAC232142DB5F00EDD90F /* AppDelegate.swift in Sources */,
 				85FEAC422142DE0900EDD90F /* ImageDataModel.swift in Sources */,
