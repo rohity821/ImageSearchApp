@@ -22,6 +22,7 @@ extension ImageSearchController : UISearchBarDelegate {
             dismissKeyboard()
             removeObjectsFromCollectionDatasource()
             showTextHUD()
+            updateSearchQuery(query: searchText)
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             searchPresenter.refreshDataWithSearchQuery(searchQuery: searchText)
         }

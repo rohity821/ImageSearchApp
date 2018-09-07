@@ -15,6 +15,7 @@ class ImageSearchController: UIViewController, UICollectionViewDelegate, UIColle
     private var layoutType : GridLayoutType = .twoByTwo
     internal var searchPresenter = ImageSearchPresenter()
     private var images = [ImageResponseModel.ImageDataModel]()
+    private var searchQuery : String?
     
     @IBOutlet weak var optionsBtn: UIBarButtonItem!
     lazy var tapRecognizer: UITapGestureRecognizer = {
@@ -51,6 +52,10 @@ class ImageSearchController: UIViewController, UICollectionViewDelegate, UIColle
         navigationItem.searchController = searchController
     }
     
+    func updateSearchQuery(query:String) {
+        searchQuery = query
+    }
+    
     //MARK: UICollection View Datasource
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -73,6 +78,12 @@ class ImageSearchController: UIViewController, UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return sizeForItem(collectionView: collectionView)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == images.count-1 {
+            searchPresenter.getNextPage()
+        }
     }
     
     //MARK: UICollection View Delegate
@@ -162,7 +173,9 @@ class ImageSearchController: UIViewController, UICollectionViewDelegate, UIColle
                 self?.collectionView.reloadData()
             }
         }
-        toggleOptionBtnState()
+        DispatchQueue.main.async { [weak self] in
+            self?.toggleOptionBtnState()
+        }
     }
     
     func refreshUIforSearchResultsFailure(errorMessage: String) {

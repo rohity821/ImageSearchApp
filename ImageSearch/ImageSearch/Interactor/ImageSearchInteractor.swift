@@ -13,7 +13,12 @@ protocol ImageSearchInteractorDelegate {
     func searchQueryDidComplete(imageResponse:ImageResponseModel)
 }
 
-class ImageSearchInteractor  {
+protocol ImageSearchInteractorInterfaceProtocol {
+    func getResultsForSearch(searchQuery:String)
+    func getNextPageForSearch(searchQuery:String)
+}
+
+class ImageSearchInteractor : NSObject, ImageSearchInteractorInterfaceProtocol  {
     
     var page : Int = 0
     var delegate : ImageSearchInteractorDelegate?
@@ -22,7 +27,16 @@ class ImageSearchInteractor  {
     
     
     func getResultsForSearch(searchQuery:String) {
+        page = 1
+        getResultsForSearch(searchQuery: searchQuery, page: page)
+    }
+    
+    func getNextPageForSearch(searchQuery:String) {
         page = page+1
+        getResultsForSearch(searchQuery: searchQuery, page: page)
+    }
+    
+    private func getResultsForSearch(searchQuery:String, page:Int) {
         let finalQuery = searchQuery.replacingOccurrences(of: " ", with: "+")
         if finalQuery.isEmpty {
             return
