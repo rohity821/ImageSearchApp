@@ -43,15 +43,14 @@ class ImageSearchQueryTask {
                     defer { self.dataTask = nil }
                     if let error = error {
                         self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
-                    } else if let data = data,
-                        let response = response as? HTTPURLResponse,
-                        response.statusCode == 200 {
+                    } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
                         self.updateSearchResults(data)
                         self.saveData(data: data, toFile: searchTerm)
-//                        self.save(data: data, page: page, fileName: searchTerm)
-                        completion(self.imageResults, self.errorMessage)
-                        self.resetLocalVariables()
+                    } else {
+                        self.errorMessage = noContentsToShow
                     }
+                    completion(self.imageResults, self.errorMessage)
+                    self.resetLocalVariables()
                 }
                 dataTask?.resume()
             }
