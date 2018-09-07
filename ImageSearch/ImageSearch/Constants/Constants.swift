@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+enum GridLayoutType {
+    case twoByTwo
+    case threeByThree
+    case fourByFour
+}
