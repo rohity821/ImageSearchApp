@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+
+struct ImageSearchAPI {
+    
+    static let urlScheme = "https"
+    static let pixabayHost = "pixabay.com"
+    
+    static let imageSearchUrl = "\(urlScheme)://\(pixabayHost)/api/"
+    
+}
