@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageSearchController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ImageSearchPresenterDelegate {
+class ImageSearchController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -86,12 +86,6 @@ class ImageSearchController: UIViewController, UICollectionViewDelegate, UIColle
         }
     }
     
-    //MARK: UICollection View Delegate
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-    
-    
     //Mark: Private functions
     private func sizeForItem(collectionView: UICollectionView) -> CGSize {
         let width = collectionView.frame.size.width
@@ -149,7 +143,9 @@ class ImageSearchController: UIViewController, UICollectionViewDelegate, UIColle
         actionSheet.addAction(cancelAction)
         self.present(actionSheet, animated: true, completion: nil)
     }
-    
+}
+
+extension ImageSearchController : ImageSearchPresenterDelegate {
     //Mark : Image search presenter delegate
     func refreshUIForSearchResults(searchResults: ImageResponseModel) {
         hideHUD()
