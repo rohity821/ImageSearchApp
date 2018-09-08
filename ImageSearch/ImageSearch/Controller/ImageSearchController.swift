@@ -35,9 +35,14 @@ class ImageSearchController: UIViewController, UICollectionViewDelegate, UIColle
         toggleOptionBtnState()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationItem.searchController?.searchBar.becomeFirstResponder()
+        navigationItem.hidesSearchBarWhenScrolling = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,7 +86,7 @@ class ImageSearchController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == images.count-3 {
+        if indexPath.row == images.count-2 {
             searchPresenter.getNextPage()
         }
     }

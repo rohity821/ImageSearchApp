@@ -11,6 +11,7 @@ import Foundation
 let apiKey = "10028201-f7ffd1c4b91bb9627b124a7b9"
 let noInternetError = "We had trouble reaching our servers. Pls check your internet connection."
 let noContentsToShow = "Doh! we dont have more content."
+let technicalError = "We are facing some technical Difficulties."
 
 enum GridLayoutType {
     case twoByTwo

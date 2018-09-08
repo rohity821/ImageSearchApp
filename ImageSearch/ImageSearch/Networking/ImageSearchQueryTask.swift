@@ -23,37 +23,23 @@ class ImageSearchQueryTask {
     
     func getSearchResults(searchTerm: String,page:Int, completion: @escaping result) {
         dataTask?.cancel()
-        
-        
-        if !ReachabilityManager.shared.isNetworkAvailable {
-            if let data = readData(fromFile: searchTerm) {
-                updateSearchResults(data)
-            } else {
-                errorMessage = noInternetError
-            }
-            completion(imageResults, errorMessage)
-            resetLocalVariables()
-        }
-        else {
-            if var urlComponents = URLComponents(string: ImageSearchAPI.imageSearchUrl) {
-                urlComponents.query = "key=\(apiKey)&image_type=photo&pretty=true&q=\(searchTerm)&per_page=\(perPage)&page=\(page)"
-                guard let url = urlComponents.url else { return }
-                
-                dataTask = defaultSession.dataTask(with: url) { data, response, error in
-                    defer { self.dataTask = nil }
-                    if let error = error {
-                        self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
-                    } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                        self.updateSearchResults(data)
-                        self.saveData(data: data, toFile: searchTerm)
-                    } else {
-                        self.errorMessage = noContentsToShow
-                    }
-                    completion(self.imageResults, self.errorMessage)
-                    self.resetLocalVariables()
+        if var urlComponents = URLComponents(string: ImageSearchAPI.imageSearchUrl) {
+            urlComponents.query = "key=\(apiKey)&image_type=photo&pretty=true&q=\(searchTerm)&per_page=\(perPage)&page=\(page)"
+            guard let url = urlComponents.url else { return }
+            
+            dataTask = defaultSession.dataTask(with: url) { data, response, error in
+                defer { self.dataTask = nil }
+                if let error = error {
+                    self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+                } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
+                    self.updateSearchResults(data)
+                } else {
+                    self.errorMessage = noContentsToShow
                 }
-                dataTask?.resume()
+                completion(self.imageResults, self.errorMessage)
+                self.resetLocalVariables()
             }
+            dataTask?.resume()
         }
     }
     
@@ -68,28 +54,6 @@ class ImageSearchQueryTask {
             debugPrint("\(errorMessage)")
             return
         }
-    }
-    
-//    private func save(data:Data, page:Int, fileName:String) {
-//        switch page {
-//        case 1:
-//            saveData(data: data, toFile: fileName)
-//        default:
-//            appendData(data: data, toFile: fileName)
-//        }
-//    }
-//
-    private func saveData(data : Data, toFile fileName:String) {
-        WriterTask.shared().writeDataToFile(data: data, fileName: fileName)
-    }
-    
-//    private func appendData(data:Data, toFile fileName:String) {
-//        WriterTask.shared().appendDataToFile(data: data, fileName: fileName)
-//    }
-    
-    private func readData(fromFile fileName:String) -> Data?{
-        let data = WriterTask.shared().readDataFromFile(fileName: fileName)
-        return data
     }
     
     private func resetLocalVariables() {

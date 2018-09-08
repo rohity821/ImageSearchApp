@@ -24,6 +24,7 @@
 		85FEAC5E2142EB5A00EDD90F /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC5C2142EB5900EDD90F /* ReachabilityManager.swift */; };
 		85FEAC602142EB6D00EDD90F /* WriterTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC5F2142EB6D00EDD90F /* WriterTask.swift */; };
 		85FEAC632142F59400EDD90F /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC622142F59300EDD90F /* Toast.swift */; };
+		85FEAC66214379D000EDD90F /* ThreadSafePlistTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FEAC65214379D000EDD90F /* ThreadSafePlistTask.swift */; };
 		96AA3044B4D5606E548B857B /* Pods_ImageSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6E1BE1FA2274A377FE2688 /* Pods_ImageSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		85FEAC5C2142EB5900EDD90F /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		85FEAC5F2142EB6D00EDD90F /* WriterTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriterTask.swift; sourceTree = "<group>"; };
 		85FEAC622142F59300EDD90F /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		85FEAC65214379D000EDD90F /* ThreadSafePlistTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadSafePlistTask.swift; sourceTree = "<group>"; };
 		89370057E1D56DDFF4C78A1D /* Pods-ImageSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImageSearch/Pods-ImageSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		9BFC8E3D3C27D6F666DCA62B /* Pods-ImageSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImageSearch/Pods-ImageSearch.release.xcconfig"; sourceTree = "<group>"; };
 		AA6E1BE1FA2274A377FE2688 /* Pods_ImageSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,7 @@
 		85FEAC162142DB5F00EDD90F = {
 			isa = PBXGroup;
 			children = (
+				85FEAC64214379A500EDD90F /* Plist */,
 				85FEAC612142F59300EDD90F /* Toast */,
 				85FEAC212142DB5F00EDD90F /* ImageSearch */,
 				85FEAC202142DB5F00EDD90F /* Products */,
@@ -194,6 +197,14 @@
 			);
 			name = Toast;
 			path = ImageSearch/Toast;
+			sourceTree = "<group>";
+		};
+		85FEAC64214379A500EDD90F /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				85FEAC65214379D000EDD90F /* ThreadSafePlistTask.swift */,
+			);
+			path = Plist;
 			sourceTree = "<group>";
 		};
 		F79B89C9B6FCA84FEB0B1F7E /* Pods */ = {
@@ -322,6 +333,7 @@
 				85FEAC5E2142EB5A00EDD90F /* ReachabilityManager.swift in Sources */,
 				85FEAC602142EB6D00EDD90F /* WriterTask.swift in Sources */,
 				85FEAC552142E91800EDD90F /* ImageSearchController+SearchBar.swift in Sources */,
+				85FEAC66214379D000EDD90F /* ThreadSafePlistTask.swift in Sources */,
 				85FEAC582142E97E00EDD90F /* ImageCollectionCell.swift in Sources */,
 				85FEAC5D2142EB5A00EDD90F /* Reachability.swift in Sources */,
 				85FEAC532142E90600EDD90F /* ImageSearchController.swift in Sources */,
